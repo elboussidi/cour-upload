@@ -11,29 +11,28 @@
  
              <div>
             <a class="btn btn-outline-primary" href="login.php">LOG IN</a>
-            <a class="btn btn-outline-secondary" href="new_use.php">SING up</a
+            <a class="btn btn-outline-secondary" href="new_use.php">Sing up</a
                 
              </div></div>
-            
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-          <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="user.php">Admin_Page</a>
+          <a class="nav-link" href="../adm/user.php">Admin_Page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">contact us</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="puplic/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           les Module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../puplic">berutique</a>
-          <a class="dropdown-item" href="../puplic">sage</a>
-          <a class="dropdown-item" href="../puplic">travaux fin exrice</a>
+          <a class="dropdown-item" href="index.php">berutique</a>
+          <a class="dropdown-item" href="index.php">sage</a>
+          <a class="dropdown-item" href="index.php">travaux fin exrice</a>
         </div>
       </li>
     </ul>
