@@ -3,7 +3,7 @@
  <html>
     <head>
         <meta charset="UTF-8">
-        
+        <title>home_page</title>
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="css/all.min.css">
@@ -30,11 +30,25 @@
   </button>
             
             <!--   espace member -->
-            <div>
-            <a class="btn btn-outline-primary" href="adm/login.php">LOG IN</a>
-            <a class="btn btn-outline-secondary" href="adm/new_use.php">SING up</a
+            
+             <?php  
+             session_start();
+ if($_SESSION){  ?>
+      <div>
+          <a class="btn btn-outline-primary" href=""><?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-danger " href="adm/out.php">log out</a
                 
-            </div> </div>
+             </div>
+     
+  <?php  } else {?>
+               
+            <div>
+                 <a class="btn btn-outline-primary btn-sm" href="adm/login.php"> LOG IN</a>
+            <a class="btn btn-outline-secondary btn-sm" href="adm/new_user.php">sign in </a
+                
+             </div>
+        <?php    } ?>
+ </div>
             
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
       
@@ -43,7 +57,7 @@
           <a class="nav-link" href="index.php">  <i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="adm/user.php">admin_page</a>
+          <a class="nav-link" href="adm/"><i class="fas fa-user-shield"></i> admin_page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
@@ -53,9 +67,9 @@
           module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">berutique</a>
-          <a class="dropdown-item" href="#">sage</a>
-          <a class="dropdown-item" href="#">travaux fin exrice</a>
+            <a class="dropdown-item" href="puplic/index.php?m=1">berutique</a>
+            <a class="dropdown-item" href="puplic/index.php?m=2">sage</a>
+            <a class="dropdown-item" href="puplic/index.php?m=3">travaux fin exrice</a>
         </div>
       </li>
     </ul>
@@ -70,7 +84,7 @@
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <p class="lead">
-      <a class="btn btn-primary btn-lg" href="puplic/page.php" role="button">Learn more</a>
+      <a class="btn btn-primary btn-lg" href="puplic/index.php?m=1" role="button">Learn more</a>
   </p>
 </div>
        

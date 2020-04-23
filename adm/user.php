@@ -1,4 +1,15 @@
+<?php   
+require '../conn.php';
 
+
+$stmt=$conn->prepare("SELECT * FROM `user` WHERE `status` ='active'");
+$stmt->execute();
+$usr=$stmt->fetchAll();
+
+
+
+
+?>
 
 <!DOCTYPE html>
 
@@ -10,6 +21,8 @@
          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="../css/all.min.css">
          <link rel="stylesheet" href="../bootstrap/css/style.css">
+         <link rel="stylesheet" href="../css/semantic.min.css">
+         
       <style type="text/css">
            @font-face{
              font-family: tdt ;
@@ -38,7 +51,7 @@
 		<h2>User <b>Management</b></h2>
 			</div>
 		<div class="col-sm-7">
-                    <a href="new_use.php" class="btn btn-outline-warning"> <span>Add New User</span></a>
+                    <a href="new_use.php" class="btn btn-outline-warning"><i class="fas fa-user-plus"></i> <span>Add New User</span></a>
 							
 		</div>
                 </div>
@@ -56,24 +69,61 @@
                 </thead>
                
                 <tbody>
+                    
+                 <?php 
+                 
+                 foreach ($usr as $us) {
+                     
+                 
+                 
+                 ?>
+                    
                     <tr>
-                        <td>1</td>
-                        <td><a href=""vvvvf> abdelmajid</a></td>
-                        <td>0677076287</td>                        
+                        <td><?php echo  $us['id']; ?></td>
+                        <td><a href=""vvvvf>  <?php echo  $us['name']; ?></a></td>
+                        <td> <?php echo  $us['tel']; ?></td>                        
                         <td>2020/04/13</td>
-		<td><span class="status text-success">&bull;</span>ADMIN </td>
+		<td><span class="status text-success">&bull;</span> <?php echo  $us['lev']; ?> </td>
 			<td>
-			<a href="" class="btn btn-danger" title="Settings" data-toggle="tooltip"> del  </a>
-                       <a href="" > <button type="button" class="btn btn-success">add</button></a> 
+			<a href="delet.php?idu=<?php echo $us['id']; ?>" class="btn btn-danger btn-sm" title="Settings" data-toggle="tooltip"><i class="fas fa-trash-alt"></i> del  </a>
+                        <a href="activ.php?d=<?php echo $us['id']; ?>" > <button type="button" class="btn btn-success btn-sm"><i class="fas fa-edit"></i>admin </button></a> 
                         
 			</td>
                     </tr>
+                    
+                    
+                    <?php } ?>
 			</tbody>
+                        
             </table>
                     </div>    
                     </div>
         
+        <?php    
+        if (isset($_SESSION['lev'])){ 
+
+    $st=$_SESSION['lev'];   
+if($st == "ADMIN" ){
+    echo 'yes admin';
+}else{
+    
+    echo '  <div class="ui active inverted dimmer">
+    <div class="ui indeterminate text loader" style="color:red ;">no admin  redirect 
+<i class="fas fa-times"></i></i></div>
+  </div>
+  <p></p>
+';
+       echo '<meta http-equiv="refresh" content="3; \'/ofppt/index.php\' /> " ';   
         
+    
+    }
+}
+
+        
+   
+        
+        
+        ?>
         
        <br>
         <?php include '../footer.php'; ?>

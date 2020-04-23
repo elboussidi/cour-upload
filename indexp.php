@@ -1,3 +1,4 @@
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="css/all.min.css">
@@ -9,30 +10,44 @@
     <span class="navbar-toggler-icon"></span>
   </button>
  
-             <div>
-            <a class="btn btn-outline-primary" href="login.php">LOG IN</a>
-            <a class="btn btn-outline-secondary" href="new_use.php">Sing up</a
+             <?php  
+             session_start();
+ if($_SESSION){  ?>
+      <div>
+          <a class="btn btn-outline-primary btn-sm" href=""><?php echo $_SESSION['name']; ?> </a>
+            <a class="btn btn-outline-danger btn-sm" href="out.php">log out</a
                 
-             </div></div>
+             </div>
+     
+  <?php  } else {?>
+               
+            <div>
+                 <a class="btn btn-outline-primary btn-sm" href="../adm/login.php"> LOG IN</a>
+            <a class="btn btn-outline-secondary btn-sm" href="../adm/new_user.php">sign in </a
+                
+             </div>
+        <?php    } ?>
+
+        </div>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
           <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="../adm/user.php">Admin_Page</a>
+          <a class="nav-link" href="../adm">Admin_Page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">contact us</a>
+        <a class="nav-link" href="#"><i class="fas fa-file-signature"></i> contact us</a>
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="puplic/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           les Module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="index.php">berutique</a>
-          <a class="dropdown-item" href="index.php">sage</a>
-          <a class="dropdown-item" href="index.php">travaux fin exrice</a>
+            <a class="dropdown-item" href="index.php?m=1">berutique</a>
+          <a class="dropdown-item" href="index.php?m=2">sage</a>
+          <a class="dropdown-item" href="index.php?m=3">travaux fin exrice</a>
         </div>
       </li>
     </ul>

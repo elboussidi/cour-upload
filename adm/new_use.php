@@ -1,4 +1,42 @@
+<?php 
+require '../conn.php';
 
+$err=" ";
+if(isset($_POST['reg'])){
+
+    $name=$_POST['name'];
+    $phone=$_POST['phone'];
+    $password=$_POST['password'] ;
+      $password2=$_POST['password2'] ;
+       // $gender=$_POST['gender'] ;
+ 
+        
+     if(empty($name) || empty($phone) || empty($password) || empty($password2)  ){
+ $err='<div class="alert alert-danger" role="alert">filed empty !!</div>';
+     } else {
+    if($password !== $password2){
+       $err='<div class="alert alert-danger" role="alert"> password not corespedant</div>'; 
+    } else {
+     $password_hash=  password_hash($password, PASSWORD_DEFAULT);
+        
+        
+       $stmt=$conn->prepare("INSERT INTO `user` (`id`, `name`, `tel`, `password`, `status`, `lev`) VALUES (NULL, ?, ?, ?, 'desactive', 'member')");
+       $stmt->execute([$name,$phone,$password_hash]);
+       
+       if($stmt){
+           $err='<div class="alert alert-success" role="alert">data has been saved</div>';
+       }
+        
+        
+    }
+         
+         
+         
+     }
+        
+        
+}
+?>
 <!DOCTYPE html>
 
  <html>
@@ -33,6 +71,7 @@
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <?php echo $err;  ?>
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
@@ -40,7 +79,7 @@
                                 <div class="form-group row">
                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="full_name" class="form-control" name="uname">
+                                        <input type="text" id="full_name" class="form-control" name="name">
                                     </div>
                                 </div>
 
@@ -50,21 +89,21 @@
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="phone_number" class="form-control" name="uphone">
+                                        <input type="text" id="phone_number" class="form-control" name="phone">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="present_address" class="col-md-4 col-form-label text-md-right">password</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="present_address" class="form-control" name="upassword">
+                                        <input type="password" id="present_address" class="form-control" name="password">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right"> conferm password</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="permanent_address" class="form-control" name="upassword2">
+                                        <input type="text" id="permanent_address" class="form-control" name="password2">
                                     </div>
                                 </div>
 
@@ -75,12 +114,12 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="femaleRadio" value="Female" name="ugender" > Female
+                                    <input type="radio" id="femaleRadio" value="Female" name="gender" > Female
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="maleRadio" value="Male" name="ugender"> Male
+                                    <input type="radio" id="maleRadio" value="Male" name="gender"> Male
                                 </label>
                             </div>
                         </div>

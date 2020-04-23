@@ -1,4 +1,21 @@
+<?php 
+require '../conn.php'; 
+$m=1;
+if(isset($_GET['m'])){
 
+$m= intval( $_GET['m']);
+
+//if($m== 1){
+//    $m="berutique" ;
+//}elseif ($m == 2) {
+//       $m="sage" ;  
+//    }elseif ($m == 3 ) {
+//        $m="fin exrcice";
+//    }
+
+
+}
+?>
 <!DOCTYPE html>
 
  <html>
@@ -32,35 +49,37 @@
        
                   <div class="card text-center">
   <div class="card-header">
-    Featured
+   <?php 
+if($m == 1){echo 'berutique'; }elseif ($m == 2){echo 'sage'; }elseif ($m == 3) {
+          
+     echo 'travux fin exrcice';  }  ?>
   </div>
                       <br>
   <div class="card-block">
-    <h4 class="card-title">Special title treatment</h4>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="../puplic/index.php" class="btn btn-primary">Go somewhere</a>
+    <h4 class="card-title"><i class="far fa-file-video"></i> video</h4>
+    <p class="card-text">ici les video </p>
+    <a href="../puplic/media.php?m=<?php echo $m;?>" class="btn btn-primary disabled"> en cour ...</a>
   </div>
                       <br>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
+ 
+            </div>
             <br><br>
             
             
                   <div class="card text-center">
   <div class="card-header">
-    Featured
+    <?php 
+    if($m == 1){echo 'berutique'; }elseif ($m == 2){echo 'sage'; }elseif ($m == 3) {
+          
+     echo 'travux fin exrcice';  }  ?>
   </div>
                       <br>
   <div class="card-block">
-    <h4 class="card-title">Special title treatment</h4>
+    <h4 class="card-title"><i class="far fa-file-word"></i> Documment </h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="../puplic/index.php" class="btn btn-primary">Go somewhere</a>
+    <a href="../puplic/document.php?m=<?php echo $m;?>" class="btn btn-primary">Go to document</a>
   </div><br>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
+ 
 </div>
            
             </div>

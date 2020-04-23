@@ -20,7 +20,10 @@
            }
             p{
                font-family: tst ;
-           }     
+           } 
+           video{
+               height: 20%;
+           }
      </style>
      
     <body>
@@ -28,11 +31,12 @@
  
         <?php include '../indexp.php'; ?>
         
-     
-        
-     
+      
         
         
+     <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=y60sKz4xvbE&feature=youtu.be"></iframe>
+</div>
         
         
         <?php include '../footer.php'; ?>

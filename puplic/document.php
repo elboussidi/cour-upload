@@ -1,4 +1,28 @@
+<?php  
+require '../conn.php';
 
+if(isset($_GET['m'])){
+    
+    $m= intval( $_GET['m']);
+    
+    if($m== 1){$m="buretique";}elseif ($m==2) {$m="sage";}elseif ($m==3) {$m="travu "; }
+        
+   
+        
+    
+    
+    $stmt=$conn->prepare("SELECT * FROM `cour` WHERE `type`='document' AND `module`= ? AND status='oui'");
+    $stmt->execute([$m]);
+    $data=$stmt->fetchAll();
+    
+   
+    
+    
+    
+    
+}
+
+?>
 <!DOCTYPE html>
 
  <html>
@@ -20,7 +44,12 @@
            }
             p{
                font-family: tst ;
-           }     
+           }
+           
+           #tabl-cour{
+               
+               margin-left:    7%;
+           }
      </style>
      
     <body>
@@ -28,50 +57,46 @@
  
         <?php include '../indexp.php'; ?>
         
-     
+       
         
         <table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-      <th>Username</th>
-      <th>Username</th>
+      <th>title</th>
+      <th>discripton</th>
+      <th>module</th>
+      <th>vue </th>
+     
       
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>abdelmajid</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-       <td>@fat</td>
-        
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    </tr>
     
+    </thead>
+    <tbody>
+    <?php  
+    foreach ($data as $row){
+       
+    
+    ?>
+    
+    
+  
+  
+      
+    <tr>
+      <th scope="row"><?php echo $row['id']; ?></th>
+      <td><?php echo $row['title']; ?></td>
+      <td><?php echo $row['discription']; ?></td>
+      <td><?php echo $row['module']; ?></td>
+      <td><a href="<?php echo $row['lien']; ?>"> download</a></td>
+     
+   
+    
+    <?php  }  ?>
   </tbody>
 </table>
         
-        
+     </div>   
         
         
         <?php include '../footer.php'; ?>
