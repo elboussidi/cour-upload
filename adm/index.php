@@ -176,20 +176,20 @@ if($st == "ADMIN"){
 						<?php  echo   $_SESSION['name'];  ?>
 					</div>
 					<div class="profile-usertitle-job">
-						<?php  echo   $_SESSION['lev'];  ?>
+					<i class="fas fa-shield-alt"></i>	<?php  echo   $_SESSION['lev'];  ?>
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-light btn-sm">0<?php  echo   $_SESSION['tel'];  ?> </button>
+					<button type="button" class="btn btn-light btn-sm"><i class="fas fa-phone-alt"></i> 0<?php  echo   $_SESSION['tel'];  ?> </button>
 					
                                             
                                  <?php  if( $_SESSION['status'] == "active"){
-      echo '<button type="button" class="btn btn-success btn-sm"> '.$_SESSION['status'].'</button>'; 
+      echo '<button type="button" class="btn btn-success btn-sm"><i class="fas fa-lock-open"></i> '.$_SESSION['status'].'</button>'; 
                                  }
                                  else {
-                                          echo '<button type="button" class="btn btn-danger btn-sm"> '.$_SESSION['status'].'</button>'; 
+                                          echo '<button type="button" class="btn btn-danger btn-sm"><i class="fas fa-lock"></i> '.$_SESSION['status'].'</button>'; 
                                      } ?>
                                         
                                        
@@ -244,27 +244,33 @@ if($st == "ADMIN"){
             <div class="profile-content">
                 
               <ul class="list-group">
-                  <li class="list-group-item justify-content-between"><a href="user.php">
+                  <li class="list-group-item justify-content-between"><a href="user.php"><i class="fas fa-users-cog"></i>
     user manager </a>
     <span class="badge badge-default badge-pill">  </span>
   </li>
+  
+   <li class="list-group-item justify-content-xl-around">
+       <a href="new_use.php"><i class="fas fa-user-plus"></i>  new user </a> 
+    <span class="badge badge-info badge-pill"></span>
+  </li>
+  
   <li class="list-group-item justify-content-xl-around">
-   <a href="index.php?mod=cour">   cour en attend </a>  &ensp; &ensp; &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp;
+       <a href="index.php?user=user"> <i class="fas fa-user-check"></i> user en attend </a> &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;
+    <span class="badge badge-info badge-pill"><?php echo $totalu;  ?></span>
+  </li>
+  
+  <li class="list-group-item justify-content-xl-around">
+   <a href="index.php?mod=cour"><i class="fas fa-file-download"></i>   cour en attend </a>  &ensp; &ensp; &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp;
   
     <span class="badge badge-info badge-pill"> <?php echo $tot;  ?></span>
   </li>
+  
   <li class="list-group-item justify-content-xl-around">
-      <a href="new_cours.php">  new cour </a>  
+      <a href="new_cours.php"><i class="fas fa-file-medical"></i>  new cour </a>  
     <span class="badge badge-info badge-pill"></span>
   </li>
-   <li class="list-group-item justify-content-xl-around">
-       <a href="new_use.php">  new user </a> 
-    <span class="badge badge-info badge-pill"></span>
-  </li>
-   <li class="list-group-item justify-content-xl-around">
-       <a href="index.php?user=user">  user en attend </a> &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;&ensp; &ensp; &ensp;
-    <span class="badge badge-info badge-pill"><?php echo $totalu;  ?></span>
-  </li>
+  
+  
   
 </ul>
 		 </div>

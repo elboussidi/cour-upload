@@ -12,16 +12,16 @@
  <?php     
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary" href=""><?php echo $_SESSION['name']; ?> </a>
-            <a class="btn btn-outline-danger " href="out.php">log out</a
+          <a class="btn btn-outline-primary" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-danger " href="out.php"><i class="fas fa-power-off"></i>  log out</a>
                 
              </div>
      
   <?php  } else {?>
                
             <div>
-                 <a class="btn btn-outline-primary" href="login.php"> LOG IN</a>
-            <a class="btn btn-outline-secondary " href="new_user.php">sign in </a
+                 <a class="btn btn-outline-primary" href="login.php"><i class="fas fa-sign-in-alt"></i>  LOG IN</a>
+            <a class="btn btn-outline-secondary " href="new_use.php"><i class="fas fa-user-plus"></i> sign in </a
                 
              </div>
         <?php    } ?>
@@ -45,7 +45,8 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          les Module
+      
+<i class="far fa-file-word"></i>    les Module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="../puplic/index.php?m=1">berutique</a>

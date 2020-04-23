@@ -104,7 +104,7 @@ $usr=$stmt->fetchAll();
 
     $st=$_SESSION['lev'];   
 if($st == "ADMIN" ){
-    echo 'yes admin';
+   
 }else{
     
     echo '  <div class="ui active inverted dimmer">

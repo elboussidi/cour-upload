@@ -24,7 +24,18 @@ if(isset($_POST['reg'])){
        $stmt->execute([$name,$phone,$password_hash]);
        
        if($stmt){
-           $err='<div class="alert alert-success" role="alert">data has been saved</div>';
+           $err='
+  <div class="ui active inverted dimmer">
+    <div class="ui indeterminate text loader" style="color:green ;">
+    تم تسجيل عضويتك بنجاح سيتم تفعيل حسابك بعد مراجعته
+<i class="far fa-check-circle"></i></div>
+  </div>
+  <p></p>
+';
+       echo '<meta http-equiv="refresh" content="2; \'/ofppt/puplic/document.php?m=2\' /> " ';   
+        
+           
+           //$err='<div class="alert alert-success" role="alert">data has been saved</div>';
        }
         
         

@@ -14,16 +14,16 @@
              session_start();
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary btn-sm" href=""><?php echo $_SESSION['name']; ?> </a>
-            <a class="btn btn-outline-danger btn-sm" href="out.php">log out</a
+          <a class="btn btn-outline-primary btn-sm" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+            <a class="btn btn-outline-danger btn-sm" href="out.php"><i class="fas fa-power-off"></i>  log out</a
                 
              </div>
      
   <?php  } else {?>
                
             <div>
-                 <a class="btn btn-outline-primary btn-sm" href="../adm/login.php"> LOG IN</a>
-            <a class="btn btn-outline-secondary btn-sm" href="../adm/new_user.php">sign in </a
+                 <a class="btn btn-outline-primary btn-sm" href="../adm/login.php"><i class="fas fa-sign-in-alt"></i>  LOG IN</a>
+            <a class="btn btn-outline-secondary btn-sm" href="../adm/new_use.php"><i class="fas fa-user-plus"></i> sign in </a
                 
              </div>
         <?php    } ?>
@@ -32,17 +32,18 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php"> <i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="../adm">Admin_Page</a>
+          <a class="nav-link" href="../adm"><i class="fas fa-user-shield"></i> Admin_Page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-file-signature"></i> contact us</a>
       </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="puplic/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          les Module
+        
+<i class="far fa-file-word"></i>  les Module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="index.php?m=1">berutique</a>

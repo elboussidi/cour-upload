@@ -35,16 +35,16 @@
              session_start();
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary" href=""><?php echo $_SESSION['name']; ?> </a>
-          <a class="btn btn-outline-danger " href="adm/out.php">log out</a
+          <a class="btn btn-outline-primary" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-danger " href="adm/out.php"><i class="fas fa-power-off"></i>i class="fas fa-power-off"></i> log out</a
                 
              </div>
      
   <?php  } else {?>
                
             <div>
-                 <a class="btn btn-outline-primary btn-sm" href="adm/login.php"> LOG IN</a>
-            <a class="btn btn-outline-secondary btn-sm" href="adm/new_user.php">sign in </a
+                 <a class="btn btn-outline-primary btn-sm" href="adm/login.php"><i class="fas fa-sign-in-alt"></i>  LOG IN</a>
+            <a class="btn btn-outline-secondary btn-sm" href="adm/new_use.php"><i class="fas fa-user-plus"></i> sign in </a
                 
              </div>
         <?php    } ?>
@@ -60,11 +60,12 @@
           <a class="nav-link" href="adm/"><i class="fas fa-user-shield"></i> admin_page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+      <a class="nav-link disabled" href="#"> <i class="fas fa-file-signature"></i> contact us en preparation</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          module
+       
+<i class="far fa-file-word"></i>  les module
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="puplic/index.php?m=1">berutique</a>

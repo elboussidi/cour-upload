@@ -88,7 +88,7 @@ if(isset($_GET['m'])){
       <td><?php echo $row['title']; ?></td>
       <td><?php echo $row['discription']; ?></td>
       <td><?php echo $row['module']; ?></td>
-      <td><a href="<?php echo $row['lien']; ?>"> download</a></td>
+      <td><a href="<?php echo $row['lien']; ?>"><i class="fas fa-download"></i> download</a></td>
      
    
     

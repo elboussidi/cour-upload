@@ -90,14 +90,14 @@ else {
                     <div class="card-body">
                         <form action="" method="POST">
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Telephone</label>
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Telephone </label>
                                 <div class="col-md-6">
-                                    <input  id="myemail" class="form-control" name="tel" autofocus>
+                                    <input  id="myemail" class="form-control" name="tel"  autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Password </label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" class="form-control" name="password" >
                                 </div>
