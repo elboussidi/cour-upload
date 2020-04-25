@@ -35,8 +35,8 @@
              session_start();
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
-          <a class="btn btn-outline-danger " href="adm/out.php"><i class="fas fa-power-off"></i>i class="fas fa-power-off"></i> log out</a
+          <a class="btn btn-outline-primary btn-sm" href="adm/index.php"><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-danger btn-sm " href="adm/out.php"><i class="fas fa-power-off"></i> log out</a
                 
              </div>
      
@@ -85,7 +85,17 @@
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <p class="lead">
-      <a class="btn btn-primary btn-lg" href="puplic/index.php?m=1" role="button">Learn more</a>
+  <div class="dropdown show">
+  <a class="btn btn-primary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="far fa-file-word"></i> go to cour
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="puplic/index.php?m=1">buretique</a>
+    <a class="dropdown-item" href="puplic/index.php?m=2">logicel sage</a>
+    <a class="dropdown-item" href="puplic/index.php?m=3">travaux fin exrcice</a>
+  </div>
+</div>  
   </p>
 </div>
        

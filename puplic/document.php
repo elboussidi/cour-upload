@@ -1,6 +1,6 @@
 <?php  
 require '../conn.php';
-
+require '../adm/fun.php';
 if(isset($_GET['m'])){
     
     $m= intval( $_GET['m']);
@@ -14,6 +14,7 @@ if(isset($_GET['m'])){
     $stmt=$conn->prepare("SELECT * FROM `cour` WHERE `type`='document' AND `module`= ? AND status='oui'");
     $stmt->execute([$m]);
     $data=$stmt->fetchAll();
+    $to=$stmt->rowCount();
     
    
     
@@ -28,7 +29,7 @@ if(isset($_GET['m'])){
  <html>
     <head>
         <meta charset="UTF-8">
-        <title>js</title>
+        <title>document <?php echo $m; ?></title>
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="../css/all.min.css">
@@ -58,7 +59,7 @@ if(isset($_GET['m'])){
         <?php include '../indexp.php'; ?>
         
        
-        
+        <div class="btn btn-info " style="margin-left:20%;"><?php echo $to; ?> </div>
         <table class="table table-striped">
   <thead>
     <tr>
@@ -84,7 +85,7 @@ if(isset($_GET['m'])){
   
       
     <tr>
-      <th scope="row"><?php echo $row['id']; ?></th>
+      <th scope="row"><?php echo  $row['id']; ?></th>
       <td><?php echo $row['title']; ?></td>
       <td><?php echo $row['discription']; ?></td>
       <td><?php echo $row['module']; ?></td>
@@ -99,7 +100,20 @@ if(isset($_GET['m'])){
      </div>   
         
         
-        <?php include '../footer.php'; ?>
+        <?php
+        
+        if($to <= 3){
+            echo '<br><br><br><br><br><br><br><br><br>';
+            
+        }elseif ($to <= 5) {
+            echo '<br><br><br><br><br><br';
+        }elseif ($to <= 7) {
+            echo '<br><br>';
+        }elseif ($to <= 1) {
+          echo '<br><br><br><br><br><br><br><br><br><br><br><br>';   
+        }
+        
+        include '../footer.php'; ?>
     </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

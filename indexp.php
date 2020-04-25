@@ -14,7 +14,7 @@
              session_start();
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary btn-sm" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-primary btn-sm" href="../adm/index.php"><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
             <a class="btn btn-outline-danger btn-sm" href="out.php"><i class="fas fa-power-off"></i>  log out</a
                 
              </div>

@@ -1,12 +1,13 @@
 <?php 
 require '../conn.php';
+require 'fun.php';
 
 $err=" ";
-if(isset($_POST['reg'])){
+if(isset($_POST['reg']) && $_SERVER['REQUEST_METHOD'] =="POST"){
 
-    $name=$_POST['name'];
-    $phone=$_POST['phone'];
-    $password=$_POST['password'] ;
+    $name= majid($_POST['name']);
+    $phone= majid($_POST['phone']);
+    $password= majid($_POST['password']) ;
       $password2=$_POST['password2'] ;
        // $gender=$_POST['gender'] ;
  
@@ -114,7 +115,7 @@ if(isset($_POST['reg'])){
                                 <div class="form-group row">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right"> conferm password</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="permanent_address" class="form-control" name="password2">
+                                        <input type="password" id="permanent_address" class="form-control" name="password2">
                                     </div>
                                 </div>
 

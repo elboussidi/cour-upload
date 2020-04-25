@@ -1,12 +1,12 @@
 <?php include '../index2.php' ; 
          require '../conn.php';
-        
+        require './fun.php';
 $err="" ;
 
-if(isset($_POST['login'])){
-    
-    $tel=$_POST['tel'];
-    $password=$_POST['password'];
+if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] == "POST"){
+      
+    $tel= majid($_POST['tel']);
+    $password= majid($_POST['password']);
     
     if(!empty($tel) || !empty($password)){
    
@@ -21,6 +21,7 @@ if(isset($_POST['login'])){
         $_SESSION['tel'] = $log['tel'];
         $_SESSION['lev'] = $log['lev'];
          $_SESSION['status'] = $log['status'];
+         $_SESSION['browser'] = $_SERVER['HTTP_USER_AGENT'];
         //<div class="ui segment">
         $err='
   <div class="ui active inverted dimmer">

@@ -1,0 +1,1 @@
+CREATE TABLE `ofppt`.`user` ( `id` INT(100) NOT NULL AUTO_INCREMENT , `name` VARCHAR(80) NOT NULL , `tel` INT(10) NOT NULL , `password` VARCHAR(255) NOT NULL , `status` VARCHAR(19) NOT NULL DEFAULT 'desactive' , `lev` VARCHAR(15) NOT NULL DEFAULT 'm' , PRIMARY KEY (`id`)) ENGINE = InnoDB;

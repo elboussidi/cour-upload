@@ -102,6 +102,15 @@ $usr=$stmt->fetchAll();
         <?php    
         if (isset($_SESSION['lev'])){ 
 
+             if ($_SESSION['browser'] !== $_SERVER['HTTP_USER_AGENT']) {
+  //sessionانهاء ال
+    session_destroy();
+    echo "you are not authenticated.";
+    exit();
+    }
+  
+            
+            
     $st=$_SESSION['lev'];   
 if($st == "ADMIN" ){
    

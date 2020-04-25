@@ -1,6 +1,15 @@
 <?php
-if (isset($_SESSION['lev'])){ 
-
+session_start();
+if (isset($_SESSION['lev']) ){ 
+    
+ if ($_SESSION['browser'] !== $_SERVER['HTTP_USER_AGENT']) {
+  //sessionانهاء ال
+    session_destroy();
+    echo "you are not authenticated.";
+    exit();
+    }
+   
+    
     $st=$_SESSION['lev'];   
 if($st == "ADMIN"){
     echo 'yes admin';
@@ -16,11 +25,13 @@ if($st == "ADMIN"){
         
     
     
-}}
+}} else {
+    die();    
+}
 
 require '../conn.php';
 
- if (isset($_GET['id']) and !empty($_GET['id'])){
+ if (isset($_GET['id']) and !empty($_GET['id']) ){
     $id=intval( $_GET['id']);
   $stmt=$conn->prepare("UPDATE `cour` SET `status`='oui' WHERE `id` = ?") ;
   $stmt->execute([$id]);
@@ -34,6 +45,7 @@ require '../conn.php';
     
 
  header("location:index.php?mod=cour");
+ exit() ;
 }
 
  if (isset($_GET['idu']) and !empty($_GET['idu'])){
@@ -50,11 +62,12 @@ require '../conn.php';
     
 
  header("location:index.php?user=user");
+ exit() ;
 }
 
 
 
- if (isset($_GET['d']) and !empty($_GET['d'])){
+ if (isset($_GET['d']) and !empty($_GET['d'])  ){
     $id=intval( $_GET['d']);
   $stmt=$conn->prepare("UPDATE `user` SET `lev`='admin' WHERE `id` = ?") ;
   $stmt->execute([$id]);
@@ -68,4 +81,5 @@ require '../conn.php';
     
 
  header("location:user.php");
+ exit();
 }

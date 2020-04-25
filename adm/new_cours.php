@@ -1,26 +1,30 @@
 <?php 
 require '../conn.php'; 
-
+require './fun.php';
      
    
 
 
 
 $err='';
-if(isset($_POST['ncour'])){
-    $title=$_POST['title'];
-     $modul=$_POST['modul'];
-      $type=$_POST['type'];
-       $dis=$_POST['dis'];
+if(isset($_POST['ncour']) && $_SERVER['REQUEST_METHOD'] == "POST"){
+    $title= majid($_POST['title']);
+     $modul= majid($_POST['modul']);
+      $type= majid($_POST['type']);
+       $dis= majid($_POST['dis']);
         ;
             $status="non";
+         $ex= end(explode('.', $_FILES['file']['name'] )) ;
+            $nimg= rand(0, 1000000).".".$ex;
             
-      $path='http://localhost/ofppt/doc/'.$_FILES['file']['name'];// رابط الحفض
-     $dir="../doc/".$_FILES['file']['name']; // مكان الرفع 
+      $path='http://localhost/ofppt/doc/'.$nimg ;// رابط الحفض
+     $dir="../doc/".$nimg; // مكان الرفع 
     move_uploaded_file($_FILES['file']['tmp_name'],$dir);// نقل الملف
+    
     $size=$_FILES['file']['size'];
       $typ=$_FILES['file']['type'];
-       if($typ == "application/pdf" || $typ =="application/msword" || $typ == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+      $alow= array('pdf','doc','xlsx') ;
+       if(in_array($ex,$alow)) {
         
           
        
@@ -173,6 +177,14 @@ if($stmt){
         
          if (isset($_SESSION['lev'])){ 
 
+              if ($_SESSION['browser'] !== $_SERVER['HTTP_USER_AGENT']) {
+  //sessionانهاء ال
+    session_destroy();
+    echo "you are not authenticated.";
+    exit();
+    }
+  
+    
     $st=$_SESSION['lev'];   
 if($st == "ADMIN" || $st == "member"){
     echo 'yes admin';
@@ -201,7 +213,7 @@ if($st == "ADMIN" || $st == "member"){
     
     }
 
-
+          
      
         
         include '../footer.php'; ?>

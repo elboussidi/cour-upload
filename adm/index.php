@@ -1,11 +1,11 @@
-
-                    
+ 
+  
 <!DOCTYPE html>
 
  <html>
     <head>
         <meta charset="UTF-8">
-        <title>new_user</title>
+        <title>admin Page</title>
          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="../css/all.min.css">
@@ -136,7 +136,8 @@
  
         <?php include '../index2.php'; 
  require'../conn.php';
-
+ require './fun.php';
+ 
 if (isset($_SESSION['lev'])){ 
 
     $st=$_SESSION['lev'];   
@@ -162,7 +163,20 @@ if($st == "ADMIN"){
 <div class="container">
     <div class="row profile">
 		<div class="col-md-3">
-                     <?php if (isset($_SESSION['name'])){  ?>
+                     <?php 
+                     
+                     if (isset($_SESSION['name'])){ 
+                         
+                          if ($_SESSION['browser'] !== $_SERVER['HTTP_USER_AGENT']) {
+  //sessionانهاء ال
+    session_destroy();
+    echo "you are not authenticated.";
+    exit();
+    }
+  
+                         
+                         ?>
+                    
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
@@ -173,7 +187,7 @@ if($st == "ADMIN"){
                               
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						<?php  echo   $_SESSION['name'];  ?>
+						<?php  echo   $_SESSION['name'] ;  ?>
 					</div>
 					<div class="profile-usertitle-job">
 					<i class="fas fa-shield-alt"></i>	<?php  echo   $_SESSION['lev'];  ?>
@@ -280,7 +294,7 @@ if($st == "ADMIN"){
                 } else {
      echo " <div class='alert alert-danger' role='alert'> aucan information</div> ";   
                 }          // and if virevication de sesstion pour afiche les information admin
-                if (isset($_GET['mod']) AND $_SESSION['lev'] == "ADMIN"){
+                if (isset($_GET['mod']) AND $_SESSION['lev'] == "ADMIN" and !empty($_GET['mod'])){
                  
                     $m="non";
                     
@@ -352,7 +366,7 @@ if($st == "ADMIN"){
 
 
  <?php 
-                if (isset($_GET['user']) and  $_SESSION['lev'] == "ADMIN"){
+                if (isset($_GET['user']) and  $_SESSION['lev'] == "ADMIN" and !empty($_GET['user'])){
                  
                    
                     

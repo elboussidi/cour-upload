@@ -1,4 +1,5 @@
-<?php   session_start() ?>
+<?php   session_start() ;
+?>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="css/all.min.css">
@@ -12,16 +13,16 @@
  <?php     
  if($_SESSION){  ?>
       <div>
-          <a class="btn btn-outline-primary" href=""><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
-          <a class="btn btn-outline-danger " href="out.php"><i class="fas fa-power-off"></i>  log out</a>
+          <a class="btn btn-outline-primary btn-sm" href="index.php"><i class="fas fa-user-tie"></i> <?php echo $_SESSION['name']; ?> </a>
+          <a class="btn btn-outline-danger btn-sm " href="out.php"><i class="fas fa-power-off"></i>  log out</a>
                 
              </div>
      
   <?php  } else {?>
                
             <div>
-                 <a class="btn btn-outline-primary" href="login.php"><i class="fas fa-sign-in-alt"></i>  LOG IN</a>
-            <a class="btn btn-outline-secondary " href="new_use.php"><i class="fas fa-user-plus"></i> sign in </a
+                 <a class="btn btn-outline-primary btn-sm" href="login.php"><i class="fas fa-sign-in-alt"></i>  LOG IN</a>
+            <a class="btn btn-outline-secondary btn-sm" href="new_use.php"><i class="fas fa-user-plus"></i> sign in </a
                 
              </div>
         <?php    } ?>
