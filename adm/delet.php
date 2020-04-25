@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+session_regenerate_id(true);
 if (isset($_SESSION['name'])){ 
     
  if ($_SESSION['browser'] !== $_SERVER['HTTP_USER_AGENT']) {

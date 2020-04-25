@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
  <html>
@@ -8,7 +9,8 @@
          <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="css/all.min.css">
          <link rel="stylesheet" href="bootstrap/css/style.css">
-      <style type="text/css">
+         <link rel="shortcut icon" type="image/png" href="doc2.png">  
+    <style type="text/css">
            @font-face{
              font-family: tdt ;
             src: url('font/fo.ttf');

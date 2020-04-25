@@ -9,6 +9,8 @@
          <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
          <link rel="stylesheet" href="../css/all.min.css">
          <link rel="stylesheet" href="../bootstrap/css/style.css">
+         <link rel="shortcut icon" type="image/png" href="../doc2.png">
+         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <style type="text/css">
            @font-face{
              font-family: tdt ;

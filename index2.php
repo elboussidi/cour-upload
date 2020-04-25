@@ -1,4 +1,10 @@
-<?php   session_start() ;
+<?php  
+ini_set('session.use_trans_sid', 0);
+ini_set('session.use_only_cookies', 1);
+
+session_start() ;
+
+   session_regenerate_id(true);
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
          <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
